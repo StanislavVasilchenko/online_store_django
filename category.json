@@ -1,7 +1,7 @@
 [
   {
     "model": "catalog.category",
-    "pk": 3,
+    "pk": 1,
     "fields": {
       "category_name": "HDD",
       "category_description": "Жесткие диски"
@@ -9,7 +9,7 @@
   },
   {
     "model": "catalog.category",
-    "pk": 4,
+    "pk": 2,
     "fields": {
       "category_name": "SSD",
       "category_description": "Твердотельные накопители"
@@ -17,10 +17,18 @@
   },
   {
     "model": "catalog.category",
-    "pk": 5,
+    "pk": 3,
     "fields": {
       "category_name": "flash",
       "category_description": "Флэш накопители"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 39,
+    "fields": {
+      "category_name": "Процессоры",
+      "category_description": "Intel"
     }
   }
 ]
