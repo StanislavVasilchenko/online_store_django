@@ -1,7 +1,11 @@
 from django.shortcuts import render
 
+from catalog.models import Product
+
 
 def home(request):
+    latest_product = Product.objects.order_by('date_of_creation',)[:5]
+    print(latest_product)
     return render(request, "main/home.html")
 
 

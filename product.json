@@ -1,1 +1,197 @@
-[{"model": "catalog.product", "pk": 1, "fields": {"product_name": "Kingston A400", "description": "480ГБ, 2.5\", SATA III, SATA", "image": "", "category": 2, "price": 3190.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 2, "fields": {"product_name": "Digma Run S9", "description": "256ГБ, 2.5\", SATA III, SATA, rtl", "image": "", "category": 2, "price": 1790.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 3, "fields": {"product_name": "A-Data Ultimate SU650", "description": "240ГБ, 2.5\", SATA III, SATA", "image": "", "category": 2, "price": 1990.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 4, "fields": {"product_name": "Samsung 870 EVO", "description": "500ГБ, 2.5\", SATA III, SATA", "image": "", "category": 2, "price": 6290.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 5, "fields": {"product_name": "WD Caviar Blue", "description": "2ТБ, HDD, SATA III, 3.5\"", "image": "", "category": 1, "price": 7490.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 6, "fields": {"product_name": "WD Caviar Blue", "description": "1ТБ, HDD, SATA III, 3.5\"", "image": "", "category": 1, "price": 5790.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 7, "fields": {"product_name": "WD Blue WD20EZAZ", "description": "2ТБ, HDD, SATA III, 3.5\"", "image": "", "category": 1, "price": 6790.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 8, "fields": {"product_name": "WD Purple WD22PURZ", "description": "2ТБ, HDD, SATA III, 3.5\"", "image": "", "category": 1, "price": 7790.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 9, "fields": {"product_name": "Seagate Barracuda", "description": "2ТБ, HDD, SATA III, 3.5\"", "image": "", "category": 1, "price": 6990.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 10, "fields": {"product_name": "USB NETAC UM1", "description": "64ГБ, USB3.2", "image": "", "category": 3, "price": 490.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 11, "fields": {"product_name": "USB Transcend Jetflash 700", "description": "128ГБ, USB3.0", "image": "", "category": 3, "price": 990.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 12, "fields": {"product_name": "USB Transcend Jetflash 700", "description": "64ГБ, USB3.0", "image": "", "category": 3, "price": 690.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 13, "fields": {"product_name": "USB NETAC U182", "description": "64ГБ, USB3.0", "image": "", "category": 3, "price": 490.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 14, "fields": {"product_name": "USB NETAC U182", "description": "128ГБ, USB3.0", "image": "", "category": 3, "price": 690.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}, {"model": "catalog.product", "pk": 47, "fields": {"product_name": "Intel Core i5 12400F", "description": "LGA 1700", "image": "", "category": 39, "price": 14990.0, "date_of_creation": "2023-11-17T18:32:13.636Z", "date_of_change": "2023-11-17T18:32:13.636Z"}}]
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "product_name": "Kingston A400",
+      "description": "480ГБ, 2.5\", SATA III, SATA",
+      "image": "",
+      "category": 2,
+      "price": 3190.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "product_name": "Digma Run S9",
+      "description": "256ГБ, 2.5\", SATA III, SATA, rtl",
+      "image": "",
+      "category": 2,
+      "price": 1790.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "product_name": "A-Data Ultimate SU650",
+      "description": "240ГБ, 2.5\", SATA III, SATA",
+      "image": "",
+      "category": 2,
+      "price": 1990.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "product_name": "Samsung 870 EVO",
+      "description": "500ГБ, 2.5\", SATA III, SATA",
+      "image": "",
+      "category": 2,
+      "price": 6290.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "product_name": "WD Caviar Blue",
+      "description": "2ТБ, HDD, SATA III, 3.5\"",
+      "image": "",
+      "category": 1,
+      "price": 7490.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "product_name": "WD Caviar Blue",
+      "description": "1ТБ, HDD, SATA III, 3.5\"",
+      "image": "",
+      "category": 1,
+      "price": 5790.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "product_name": "WD Blue WD20EZAZ",
+      "description": "2ТБ, HDD, SATA III, 3.5\"",
+      "image": "",
+      "category": 1,
+      "price": 6790.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "product_name": "WD Purple WD22PURZ",
+      "description": "2ТБ, HDD, SATA III, 3.5\"",
+      "image": "",
+      "category": 1,
+      "price": 7790.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+      "product_name": "Seagate Barracuda",
+      "description": "2ТБ, HDD, SATA III, 3.5\"",
+      "image": "",
+      "category": 1,
+      "price": 6990.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+      "product_name": "USB NETAC UM1",
+      "description": "64ГБ, USB3.2",
+      "image": "",
+      "category": 3,
+      "price": 490.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+      "product_name": "USB Transcend Jetflash 700",
+      "description": "128ГБ, USB3.0",
+      "image": "",
+      "category": 3,
+      "price": 990.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 12,
+    "fields": {
+      "product_name": "USB Transcend Jetflash 700",
+      "description": "64ГБ, USB3.0",
+      "image": "",
+      "category": 3,
+      "price": 690.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 13,
+    "fields": {
+      "product_name": "USB NETAC U182",
+      "description": "64ГБ, USB3.0",
+      "image": "",
+      "category": 3,
+      "price": 490.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 14,
+    "fields": {
+      "product_name": "USB NETAC U182",
+      "description": "128ГБ, USB3.0",
+      "image": "",
+      "category": 3,
+      "price": 690.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 47,
+    "fields": {
+      "product_name": "Intel Core i5 12400F",
+      "description": "LGA 1700",
+      "image": "",
+      "category": 39,
+      "price": 14990.0,
+      "date_of_creation": "2023-11-17T18:32:13.636Z",
+      "date_of_change": "2023-11-17T18:32:13.636Z"
+    }
+  }
+]
