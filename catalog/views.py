@@ -30,10 +30,4 @@ def one_product(request, pk):
     context = {
         'product_list': Product.objects.filter(id=pk)
     }
-    print(context)
     return render(request, "main/one_product.html", context)
-
-
-
-
-
