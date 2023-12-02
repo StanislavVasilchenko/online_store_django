@@ -1,0 +1,14 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+    <div class="col-12 mb-5">
+        <a class="btn btn-outline-primary" href="{% url 'blog:home' %}">На главную Блогов</a>
+    </div>
+    <div class="row text-center">
+        {% for object in object_list %}
+
+            {% include 'blog/includes/inc_blog.html' %}
+
+        {% endfor %}
+    </div>
+{% endblock %}

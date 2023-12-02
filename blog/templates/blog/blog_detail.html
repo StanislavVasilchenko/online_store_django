@@ -1,0 +1,30 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+
+    <div class="col text-center">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">{{ object.blog_title }}</h4>
+            </div>
+            <div>
+                <img src="{{ object.blog_image|my_media }}" alt="Card image app">
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                    <li>{{ object.blog_content }}</li>
+                    <li>Кол-во просмотров - {{ object.view_count }}</li>
+                    <li>Дата создания - {{ object.date_of_creation }}</li>
+                    <li>SLUG - {{ object.slug }}</li>
+                </ul>
+            </div>
+            <a href="{% url 'blog:blog_update' object.pk %}" type="button"
+               class="btn btn-lg btn-block btn-outline-primary">Редактировать запись</a>
+            <a href="{% url 'blog:articles' %}" type="button" class="btn btn-lg btn-block btn-outline-primary">К
+                записям</a>
+            <a href="{% url 'blog:blog_delete' object.pk %}" type="button"
+               class="btn btn-lg btn-block btn-outline-primary">Удалить
+                запись</a>
+        </div>
+    </div>
+{% endblock %}
