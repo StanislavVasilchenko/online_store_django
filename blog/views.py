@@ -52,7 +52,7 @@ class BlogUpdateView(UpdateView):
     fields = ('blog_title', 'blog_content', 'blog_image', 'publication_sign')
 
     def get_success_url(self):
-        return reverse('blog:blog_detail', args=[self.object.id])
+        return reverse('blog:blog_detail', args=[self.object.id, self.object.slug])
 
     def form_valid(self, form):
         if form.is_valid():
