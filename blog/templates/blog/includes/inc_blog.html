@@ -9,7 +9,7 @@
                 {#                <li>{{ object.publication_sign }}</li>#}
                 <li>Кол-во просмотров - {{ object.view_count }}</li>
             </ul>
-            <a href="{% url 'blog:blog_detail' object.pk %}" type="button"  class="btn btn-lg btn-block btn-outline-primary">К Статье</a>
+            <a href="{% url 'blog:blog_detail' object.pk object.slug%}" type="button"  class="btn btn-lg btn-block btn-outline-primary">К Статье</a>
         </div>
     </div>
 </div>

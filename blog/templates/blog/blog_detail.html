@@ -18,11 +18,11 @@
                     <li>SLUG - {{ object.slug }}</li>
                 </ul>
             </div>
-            <a href="{% url 'blog:blog_update' object.pk %}" type="button"
+            <a href="{% url 'blog:blog_update' object.pk object.slug %}" type="button"
                class="btn btn-lg btn-block btn-outline-primary">Редактировать запись</a>
             <a href="{% url 'blog:articles' %}" type="button" class="btn btn-lg btn-block btn-outline-primary">К
                 записям</a>
-            <a href="{% url 'blog:blog_delete' object.pk %}" type="button"
+            <a href="{% url 'blog:blog_delete' object.pk object.slug %}" type="button"
                class="btn btn-lg btn-block btn-outline-primary">Удалить
                 запись</a>
         </div>
