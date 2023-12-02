@@ -16,6 +16,11 @@ class BlogView(TemplateView):
 class BlogListView(ListView):
     model = Blog
 
+    def get_queryset(self, *args, **kwargs):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(publication_sign=True)
+        return queryset
+
 
 class BlogCreateView(CreateView):
     model = Blog
