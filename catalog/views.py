@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import ListView, TemplateView, DetailView
 
 from catalog.models import Product
@@ -23,10 +22,12 @@ class ProductsDetailView(DetailView):
     template_name = 'catalog/product_detail.html'
 
 
-def contacts(request):
-    if request.method == "POST":
+class ContactView(TemplateView):
+    template_name = 'catalog/contacts.html'
+
+    def post(self, request):
         name = request.POST.get("name")
         phone = request.POST.get("phone")
         message = request.POST.get("message")
         print(f"От {name} ({phone}) получено сообщение: {message}")
-    return render(request, "catalog/contacts.html")
+        return self.render_to_response(self.get_context_data())
