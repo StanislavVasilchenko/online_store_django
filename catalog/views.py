@@ -1,3 +1,5 @@
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.views.generic import ListView, TemplateView, DetailView
 
 from catalog.models import Product
@@ -24,10 +26,12 @@ class ProductsDetailView(DetailView):
 
 class ContactView(TemplateView):
     template_name = 'catalog/contacts.html'
+    success_url = 'catalog/'
 
-    def post(self, request):
+    @staticmethod
+    def post(request):
         name = request.POST.get("name")
         phone = request.POST.get("phone")
         message = request.POST.get("message")
         print(f"От {name} ({phone}) получено сообщение: {message}")
-        return self.render_to_response(self.get_context_data())
+        return HttpResponseRedirect(reverse('catalog:contacts'))
