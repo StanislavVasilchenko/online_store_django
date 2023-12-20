@@ -1,7 +1,8 @@
 from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.views.generic import ListView, TemplateView, DetailView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, TemplateView, DetailView, UpdateView, CreateView
 
+from catalog.forms import ProductForm
 from catalog.models import Product
 
 
@@ -24,6 +25,12 @@ class ProductsDetailView(DetailView):
     template_name = 'catalog/product_detail.html'
 
 
+class ProductCreateView(CreateView):
+    model = Product
+    form_class = ProductForm
+    success_url = reverse_lazy('catalog:products')
+
+
 class ContactView(TemplateView):
     template_name = 'catalog/contacts.html'
     success_url = 'catalog/'
@@ -35,3 +42,4 @@ class ContactView(TemplateView):
         message = request.POST.get("message")
         print(f"От {name} ({phone}) получено сообщение: {message}")
         return HttpResponseRedirect(reverse('catalog:contacts'))
+
