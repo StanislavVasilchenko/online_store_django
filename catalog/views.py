@@ -31,6 +31,14 @@ class ProductCreateView(CreateView):
     success_url = reverse_lazy('catalog:products')
 
 
+class ProductUpdateView(UpdateView):
+    model = Product
+    form_class = ProductForm
+
+    def get_success_url(self):
+        return reverse('catalog:one_product', args=[self.kwargs.get('pk')])
+
+
 class ContactView(TemplateView):
     template_name = 'catalog/contacts.html'
     success_url = 'catalog/'
@@ -42,4 +50,3 @@ class ContactView(TemplateView):
         message = request.POST.get("message")
         print(f"От {name} ({phone}) получено сообщение: {message}")
         return HttpResponseRedirect(reverse('catalog:contacts'))
-
