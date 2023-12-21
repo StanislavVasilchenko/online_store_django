@@ -3,7 +3,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, TemplateView, DetailView, UpdateView, CreateView
 
 from catalog.forms import ProductForm
-from catalog.models import Product
+from catalog.models import Product, Version
 
 
 class ProductView(TemplateView):
@@ -18,6 +18,11 @@ class ProductView(TemplateView):
 
 class ProductsListView(ListView):
     model = Product
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['version'] = Version.objects.all()
+        return context_data
 
 
 class ProductsDetailView(DetailView):
