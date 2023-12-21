@@ -2,6 +2,7 @@
 
 {% block content %}
     <form method="post" class="row" enctype="multipart/form-data">
+
         <div class="col-6">
             <div class="card-header">
                 {% if object %}
@@ -20,6 +21,18 @@
                         Добавить
                     {% endif %}
                 </button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card-header">
+                Версия товара
+            </div>
+            <div class="card-body">
+                {{ formset.management_form }}
+                {% for form in formset.forms %}
+                    {{ form.as_p }}
+                {% endfor %}
+
             </div>
         </div>
     </form>

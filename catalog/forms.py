@@ -1,12 +1,26 @@
 from django import forms
 
-from catalog.models import Product
+from catalog.models import Product, Version
+
+class StyleMixin:
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
 
 
-class ProductForm(forms.ModelForm):
+class ProductForm(StyleMixin, forms.ModelForm):
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     for field_name, field in self.fields.items():
+    #         field.widget.attrs['class'] = 'form-control'
+
     class Meta:
         model = Product
         fields = '__all__'
+        # fields = ('version',)
 
     def clean_product_name(self):
         cleaned_data = self.cleaned_data['product_name']
@@ -15,3 +29,11 @@ class ProductForm(forms.ModelForm):
             if word in cleaned_data:
                 raise forms.ValidationError('Вы использовали запрещенное слово в наименовании продукта')
         return cleaned_data
+
+
+class VersionForm(StyleMixin, forms.ModelForm):
+
+    class Meta:
+        model = Version
+        fields = '__all__'
+
