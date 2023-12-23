@@ -44,3 +44,4 @@ class Version(models.Model):
     class Meta:
         verbose_name = 'Версия'
         verbose_name_plural = 'Версии'
+        unique_together = (('number', 'product'),)
