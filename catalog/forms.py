@@ -23,7 +23,7 @@ class ProductForm(StyleMixin, forms.ModelForm):
         stop_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
         for word in stop_words:
             if word in cleaned_data:
-                raise ValidationError('Вы использовали запрещенное слово в наименовании продукта')
+                raise forms.ValidationError('Вы использовали запрещенное слово в наименовании продукта')
         return cleaned_data
 
 
@@ -37,5 +37,5 @@ class VersionForm(StyleMixin, forms.ModelForm):
         stop_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
         for word in stop_words:
             if word in cleaned_data:
-                raise ValidationError('Вы использовали запрещенное слово названии версии')
+                raise forms.ValidationError('Вы использовали запрещенное слово названии версии')
         return cleaned_data
