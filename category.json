@@ -3,32 +3,24 @@
     "model": "catalog.category",
     "pk": 1,
     "fields": {
-      "category_name": "HDD",
-      "category_description": "Жесткие диски"
+      "category_name": "Процессоры",
+      "category_description": "Intel"
     }
   },
   {
     "model": "catalog.category",
     "pk": 2,
     "fields": {
-      "category_name": "SSD",
-      "category_description": "Твердотельные накопители"
+      "category_name": "Оперативная память",
+      "category_description": "DDR 4"
     }
   },
   {
     "model": "catalog.category",
     "pk": 3,
     "fields": {
-      "category_name": "flash",
-      "category_description": "Флэш накопители"
-    }
-  },
-  {
-    "model": "catalog.category",
-    "pk": 39,
-    "fields": {
-      "category_name": "Процессоры",
-      "category_description": "Intel"
+      "category_name": "Видео карты",
+      "category_description": "GeForce RTX 4060"
     }
   }
 ]
