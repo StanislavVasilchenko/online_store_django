@@ -25,7 +25,7 @@ class RegisterView(CreateView):
         new_user.save()
         send_mail(
             subject='Пароль для верификации',
-            message=f'Ссылка для верификации - http://localhost:8000/verify/{verify_key}',
+            message=f'Ссылка для верификации - {verify_key}',
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[new_user.email],
         )
@@ -47,3 +47,24 @@ class VerificationTemplateView(TemplateView):
             user_code.save()
             return redirect('users:login')
         return render(request, 'users/verify_err.html')
+
+
+class PasswordRecoveryView(TemplateView):
+    template_name = 'users/pass_recovery.html'
+
+    @staticmethod
+    def post(request):
+        email = request.POST.get('email')
+        user = User.objects.filter(email=email).first()
+        if user is not None and user.email == email:
+            new_password = ''.join([str(random.randint(0, 9)) for _ in range(8)])
+            send_mail(
+                subject='Запрос на смену пароля',
+                message=f'Ваш новый пароль - {new_password}',
+                from_email= settings.EMAIL_HOST_USER,
+                recipient_list=[user.email]
+            )
+            user.set_password(new_password)
+            user.save()
+            return redirect('users:login')
+        return redirect('users:pass_recovery')
