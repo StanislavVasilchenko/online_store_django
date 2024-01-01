@@ -15,15 +15,14 @@ class StyleMixin:
 class ProductForm(StyleMixin, forms.ModelForm):
     class Meta:
         model = Product
-        fields = '__all__'
-        # fields = ('version',)
+        exclude = ('owner',)
 
     def clean_product_name(self):
         cleaned_data = self.cleaned_data['product_name']
         stop_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
         for word in stop_words:
             if word in cleaned_data:
-                raise ValidationError('Вы использовали запрещенное слово в наименовании продукта')
+                raise forms.ValidationError('Вы использовали запрещенное слово в наименовании продукта')
         return cleaned_data
 
 
@@ -37,5 +36,5 @@ class VersionForm(StyleMixin, forms.ModelForm):
         stop_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
         for word in stop_words:
             if word in cleaned_data:
-                raise ValidationError('Вы использовали запрещенное слово названии версии')
+                raise forms.ValidationError('Вы использовали запрещенное слово названии версии')
         return cleaned_data

@@ -3,195 +3,117 @@
     "model": "catalog.product",
     "pk": 1,
     "fields": {
-      "product_name": "Kingston A400",
-      "description": "480ГБ, 2.5\", SATA III, SATA",
-      "image": "",
-      "category": 2,
-      "price": 3190.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
+      "product_name": "Intel Core i5 12400F, LGA 1700",
+      "description": "2.5 ГГц и 4.4 в режиме Turbo;",
+      "image": "product_image/intel_i5.webp",
+      "category": 1,
+      "price": 14790.0,
+      "date_of_creation": "2023-12-29T18:23:32.883Z",
+      "date_of_change": "2023-12-29T18:23:32.883Z"
     }
   },
   {
     "model": "catalog.product",
     "pk": 2,
     "fields": {
-      "product_name": "Digma Run S9",
-      "description": "256ГБ, 2.5\", SATA III, SATA, rtl",
-      "image": "",
-      "category": 2,
-      "price": 1790.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
+      "product_name": "Core i5 12400, LGA 1700",
+      "description": "2.5 ГГц и 4.4 в режиме Turbo",
+      "image": "product_image/intel_i5_2.webp",
+      "category": 1,
+      "price": 16990.0,
+      "date_of_creation": "2023-12-29T18:26:49.098Z",
+      "date_of_change": "2023-12-29T18:26:49.098Z"
     }
   },
   {
     "model": "catalog.product",
     "pk": 3,
     "fields": {
-      "product_name": "A-Data Ultimate SU650",
-      "description": "240ГБ, 2.5\", SATA III, SATA",
-      "image": "",
-      "category": 2,
-      "price": 1990.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
+      "product_name": "Core i5 13400, LGA 1700",
+      "description": "2.5 ГГц и 4.6 в режиме Turbo",
+      "image": "product_image/Intel_i5_3.webp",
+      "category": 1,
+      "price": 21990.0,
+      "date_of_creation": "2023-12-29T18:28:25.233Z",
+      "date_of_change": "2023-12-29T18:28:25.233Z"
     }
   },
   {
     "model": "catalog.product",
     "pk": 4,
     "fields": {
-      "product_name": "Samsung 870 EVO",
-      "description": "500ГБ, 2.5\", SATA III, SATA",
-      "image": "",
+      "product_name": "Kingston Fury Beast Black",
+      "description": "KF432C16BBK2/16 DDR4 - 2x 8ГБ 3200МГц, DIMM, Ret",
+      "image": "product_image/Memory_1.webp",
       "category": 2,
-      "price": 6290.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
+      "price": 4590.0,
+      "date_of_creation": "2023-12-29T18:31:58.042Z",
+      "date_of_change": "2023-12-29T18:31:58.042Z"
     }
   },
   {
     "model": "catalog.product",
     "pk": 5,
     "fields": {
-      "product_name": "WD Caviar Blue",
-      "description": "2ТБ, HDD, SATA III, 3.5\"",
-      "image": "",
-      "category": 1,
-      "price": 7490.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
+      "product_name": "KF432C16BBK2/16 DDR4 - 2x 8ГБ 3200МГц, DIMM, Ret",
+      "description": "KF426C16BB12AK2/32 DDR4 - 2x 16ГБ 2666МГц, DIMM, Ret",
+      "image": "product_image/Memory_2.webp",
+      "category": 2,
+      "price": 8990.0,
+      "date_of_creation": "2023-12-29T18:33:02.481Z",
+      "date_of_change": "2023-12-29T18:33:02.481Z"
     }
   },
   {
     "model": "catalog.product",
     "pk": 6,
     "fields": {
-      "product_name": "WD Caviar Blue",
-      "description": "1ТБ, HDD, SATA III, 3.5\"",
-      "image": "",
-      "category": 1,
-      "price": 5790.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
+      "product_name": "AMD Radeon R7 Performance Series",
+      "description": "R7S416G2606U2K DDR4 - 2x 8ГБ 2666МГц, DIMM, Ret",
+      "image": "product_image/Memory_3.webp",
+      "category": 2,
+      "price": 3790.0,
+      "date_of_creation": "2023-12-29T18:44:42.927Z",
+      "date_of_change": "2023-12-29T18:44:42.927Z"
     }
   },
   {
     "model": "catalog.product",
     "pk": 7,
     "fields": {
-      "product_name": "WD Blue WD20EZAZ",
-      "description": "2ТБ, HDD, SATA III, 3.5\"",
-      "image": "",
-      "category": 1,
-      "price": 6790.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
+      "product_name": "Palit NVIDIA GeForce RTX 4060",
+      "description": "RTX4060 DUAL OC 8ГБ Dual, GDDR6, OC, Ret [ne64060t19p1-1070d]",
+      "image": "product_image/Video_1.webp",
+      "category": 3,
+      "price": 39000.0,
+      "date_of_creation": "2023-12-29T18:47:28.879Z",
+      "date_of_change": "2023-12-29T18:47:28.880Z"
     }
   },
   {
     "model": "catalog.product",
     "pk": 8,
     "fields": {
-      "product_name": "WD Purple WD22PURZ",
-      "description": "2ТБ, HDD, SATA III, 3.5\"",
-      "image": "",
-      "category": 1,
-      "price": 7790.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
+      "product_name": "GIGABYTE NVIDIA GeForce RTX 4060",
+      "description": "GV-N4060EAGLE OC-8GD 8ГБ Eagle, GDDR6, OC, Ret",
+      "image": "product_image/Video_2.webp",
+      "category": 3,
+      "price": 44330.0,
+      "date_of_creation": "2023-12-29T18:48:48.031Z",
+      "date_of_change": "2023-12-29T18:48:48.031Z"
     }
   },
   {
     "model": "catalog.product",
     "pk": 9,
     "fields": {
-      "product_name": "Seagate Barracuda",
-      "description": "2ТБ, HDD, SATA III, 3.5\"",
-      "image": "",
-      "category": 1,
-      "price": 6990.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
-    }
-  },
-  {
-    "model": "catalog.product",
-    "pk": 10,
-    "fields": {
-      "product_name": "USB NETAC UM1",
-      "description": "64ГБ, USB3.2",
-      "image": "",
+      "product_name": "ASUS NVIDIA GeForce RTX 4060",
+      "description": "DUAL-RTX4060-O8G-WHITE 8ГБ Dual, GDDR6, OC, Ret",
+      "image": "product_image/Video_3.webp",
       "category": 3,
-      "price": 490.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
-    }
-  },
-  {
-    "model": "catalog.product",
-    "pk": 11,
-    "fields": {
-      "product_name": "USB Transcend Jetflash 700",
-      "description": "128ГБ, USB3.0",
-      "image": "",
-      "category": 3,
-      "price": 990.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
-    }
-  },
-  {
-    "model": "catalog.product",
-    "pk": 12,
-    "fields": {
-      "product_name": "USB Transcend Jetflash 700",
-      "description": "64ГБ, USB3.0",
-      "image": "",
-      "category": 3,
-      "price": 690.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
-    }
-  },
-  {
-    "model": "catalog.product",
-    "pk": 13,
-    "fields": {
-      "product_name": "USB NETAC U182",
-      "description": "64ГБ, USB3.0",
-      "image": "",
-      "category": 3,
-      "price": 490.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
-    }
-  },
-  {
-    "model": "catalog.product",
-    "pk": 14,
-    "fields": {
-      "product_name": "USB NETAC U182",
-      "description": "128ГБ, USB3.0",
-      "image": "",
-      "category": 3,
-      "price": 690.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
-    }
-  },
-  {
-    "model": "catalog.product",
-    "pk": 47,
-    "fields": {
-      "product_name": "Intel Core i5 12400F",
-      "description": "LGA 1700",
-      "image": "",
-      "category": 39,
-      "price": 14990.0,
-      "date_of_creation": "2023-11-17T18:32:13.636Z",
-      "date_of_change": "2023-11-17T18:32:13.636Z"
+      "price": 52290.0,
+      "date_of_creation": "2023-12-29T18:49:41.862Z",
+      "date_of_change": "2023-12-29T18:49:41.862Z"
     }
   }
 ]
