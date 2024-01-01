@@ -18,7 +18,6 @@ class RegisterView(CreateView):
 
     def form_valid(self, form):
         verify_key = ''.join([str(random.randint(0, 9)) for i in range(12)])
-        print(len(verify_key))
         new_user = form.save()
         new_user.verified_key = verify_key
         new_user.is_active = False
