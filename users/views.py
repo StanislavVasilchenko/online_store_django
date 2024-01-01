@@ -4,9 +4,9 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, UpdateView
 
-from users.forms import UserRegisterForm
+from users.forms import UserRegisterForm, UserProfileForm
 from users.models import User
 
 
@@ -31,6 +31,16 @@ class RegisterView(CreateView):
         print(new_user.email)
         print(f'Ваш ключ - {verify_key}')
         return super().form_valid(form)
+
+
+class UserUpdateView(UpdateView):
+    model = User
+    template_name = 'users/user_form.html'
+    form_class = UserProfileForm
+    success_url = reverse_lazy('catalog:products')
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 
 class VerificationTemplateView(TemplateView):
