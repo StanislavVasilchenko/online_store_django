@@ -1,6 +1,7 @@
 import random
 
 from django.conf import settings
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
@@ -33,7 +34,7 @@ class RegisterView(CreateView):
         return super().form_valid(form)
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     template_name = 'users/user_form.html'
     form_class = UserProfileForm
@@ -58,7 +59,7 @@ class VerificationTemplateView(TemplateView):
         return render(request, 'users/verify_err.html')
 
 
-class PasswordRecoveryView(TemplateView):
+class PasswordRecoveryView(LoginRequiredMixin, TemplateView):
     template_name = 'users/pass_recovery.html'
 
     @staticmethod

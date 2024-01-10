@@ -20,10 +20,12 @@
                     {% else %}
                         <li>Продавца нет</li>
                     {% endif %}
+                    {% if object.owner == user or user.is_superuser %}
                     <a class="btn btn-outline-warning"
-                           href="{% url 'catalog:product_update' object.pk%}">Редактировать товар</a>
-                    <a class="btn btn-outline-danger"
-                           href="{% url 'catalog:product_delete' object.pk%}">Удалить</a>
+                       href="{% url 'catalog:product_update' object.pk %}">Редактировать товар</a>
+                        <a class="btn btn-outline-danger"
+                           href="{% url 'catalog:product_delete' object.pk %}">Удалить</a>
+                    {% endif %}
                 </ul>
             </div>
         </div>

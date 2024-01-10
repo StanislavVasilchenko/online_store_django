@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
@@ -69,9 +69,12 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 
-class ProductDeleteView(LoginRequiredMixin, DeleteView):
+class ProductDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('catalog:home')
+
+    def test_func(self):
+        return self.request.user.is_active
 
 
 class ContactView(TemplateView):
