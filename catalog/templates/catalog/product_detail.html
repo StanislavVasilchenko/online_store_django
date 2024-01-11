@@ -20,7 +20,13 @@
                     {% else %}
                         <li>Продавца нет</li>
                     {% endif %}
-                    <li><a class="btn btn-outline-warning" href="{% url 'catalog:product_update' object.pk %}">Редактировать продукт</a> </li>
+{#                    {% if object.owner or user.is_staff %}#}
+                    {% if object.owner == user or perms.catalog.change_product %}
+                    <a class="btn btn-outline-warning"
+                       href="{% url 'catalog:product_update' object.pk %}">Редактировать товар</a>
+                        <a class="btn btn-outline-danger"
+                           href="{% url 'catalog:product_delete' object.pk %}">Удалить</a>
+                    {% endif %}
                 </ul>
             </div>
         </div>

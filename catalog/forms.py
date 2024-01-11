@@ -15,7 +15,7 @@ class StyleMixin:
 class ProductForm(StyleMixin, forms.ModelForm):
     class Meta:
         model = Product
-        exclude = ('owner',)
+        exclude = ('owner', 'is_published')
 
     def clean_product_name(self):
         cleaned_data = self.cleaned_data['product_name']
@@ -38,3 +38,9 @@ class VersionForm(StyleMixin, forms.ModelForm):
             if word in cleaned_data:
                 raise forms.ValidationError('Вы использовали запрещенное слово названии версии')
         return cleaned_data
+
+
+class ModerationForm(StyleMixin, forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('description', 'category', 'is_published',)

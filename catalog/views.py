@@ -1,11 +1,22 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView, TemplateView, DetailView, UpdateView, CreateView
+from django.views.generic import ListView, TemplateView, DetailView, UpdateView, CreateView, DeleteView
 
-from catalog.forms import ProductForm, VersionForm
+from catalog.forms import ProductForm, VersionForm, ModerationForm
 from catalog.models import Product, Version
+
+
+class UserPassesMixin(UserPassesTestMixin):
+    def test_func(self):
+        user = self.request.user
+        product = self.get_object()
+        if product.owner == user:
+            return True
+        elif user.groups.filter(name='moderator').exists():
+            return True
+        return self.handle_no_permission()
 
 
 class ProductView(TemplateView):
@@ -44,8 +55,9 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ProductUpdateView(LoginRequiredMixin, UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UserPassesMixin, UpdateView):
     model = Product
+    permission_required = 'catalog.change_product'
     form_class = ProductForm
 
     def get_success_url(self):
@@ -67,6 +79,17 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
             formset.instance = self.object
             formset.save()
         return super().form_valid(form)
+
+    def get_form_class(self):
+        if self.request.user.is_staff:
+            return ModerationForm
+        else:
+            return ProductForm
+
+
+class ProductDeleteView(LoginRequiredMixin, UserPassesMixin, DeleteView):
+    model = Product
+    success_url = reverse_lazy('catalog:home')
 
 
 class ContactView(TemplateView):
