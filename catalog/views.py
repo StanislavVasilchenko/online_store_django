@@ -8,6 +8,17 @@ from catalog.forms import ProductForm, VersionForm, ModerationForm
 from catalog.models import Product, Version
 
 
+class UserPassesMixin(UserPassesTestMixin):
+    def test_func(self):
+        user = self.request.user
+        product = self.get_object()
+        if product.owner == user:
+            return True
+        elif user.groups.filter(name='moderator').exists():
+            return True
+        return self.handle_no_permission()
+
+
 class ProductView(TemplateView):
     model = Product
     template_name = 'catalog/index.html'
@@ -44,19 +55,10 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UserPassesMixin, UpdateView):
     model = Product
     permission_required = 'catalog.change_product'
     form_class = ProductForm
-
-    def test_func(self):
-        user = self.request.user
-        product = self.get_object()
-        if product.owner == user:
-            return True
-        elif user.groups.filter(name='moderator').exists():
-            return True
-        return self.handle_no_permission()
 
     def get_success_url(self):
         return reverse('catalog:product_update', args=[self.kwargs.get('pk')])
@@ -85,12 +87,9 @@ class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return ProductForm
 
 
-class ProductDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class ProductDeleteView(LoginRequiredMixin, UserPassesMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('catalog:home')
-
-    def test_func(self):
-        return self.request.user.is_active
 
 
 class ContactView(TemplateView):
