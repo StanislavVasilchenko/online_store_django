@@ -71,7 +71,7 @@ class PasswordRecoveryView(LoginRequiredMixin, TemplateView):
             send_mail(
                 subject='Запрос на смену пароля',
                 message=f'Ваш новый пароль - {new_password}',
-                from_email= settings.EMAIL_HOST_USER,
+                from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[user.email]
             )
             user.set_password(new_password)

@@ -44,9 +44,19 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ProductUpdateView(LoginRequiredMixin, UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Product
+    permission_required = 'catalog.change_product'
     form_class = ProductForm
+
+    def test_func(self):
+        user = self.request.user
+        product = self.get_object()
+        if product.owner == user:
+            return True
+        elif user.groups.filter(name='moderator').exists():
+            return True
+        return self.handle_no_permission()
 
     def get_success_url(self):
         return reverse('catalog:product_update', args=[self.kwargs.get('pk')])
