@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, TemplateView, DetailView, UpdateView, CreateView, DeleteView
 
-from catalog.forms import ProductForm, VersionForm
+from catalog.forms import ProductForm, VersionForm, ModerationForm
 from catalog.models import Product, Version
 
 
@@ -67,6 +67,12 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
             formset.instance = self.object
             formset.save()
         return super().form_valid(form)
+
+    def get_form_class(self):
+        if self.request.user.is_staff:
+            return ModerationForm
+        else:
+            return ProductForm
 
 
 class ProductDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):

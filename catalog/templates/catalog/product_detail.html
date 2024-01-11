@@ -20,7 +20,7 @@
                     {% else %}
                         <li>Продавца нет</li>
                     {% endif %}
-                    {% if object.owner == user or user.is_superuser %}
+                    {% if object.owner or user.is_staff %}
                     <a class="btn btn-outline-warning"
                        href="{% url 'catalog:product_update' object.pk %}">Редактировать товар</a>
                         <a class="btn btn-outline-danger"

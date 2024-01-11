@@ -15,6 +15,7 @@ class Product(models.Model):
     date_of_change = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Пользователь')
+    is_published = models.BooleanField(default=False, verbose_name='Опубликовано')
 
     def __str__(self):
         return f'{self.id} {self.product_name} {self.price} {self.category}'

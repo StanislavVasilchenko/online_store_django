@@ -38,3 +38,9 @@ class VersionForm(StyleMixin, forms.ModelForm):
             if word in cleaned_data:
                 raise forms.ValidationError('Вы использовали запрещенное слово названии версии')
         return cleaned_data
+
+
+class ModerationForm(StyleMixin, forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('description', 'category',)
