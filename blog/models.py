@@ -2,6 +2,15 @@ from django.db import models
 
 
 class Blog(models.Model):
+    """Модель Блога:
+    - blog_title: Заголовок
+    - slug: Слаг
+    - blog_content: Содержимое
+    - blog_image: Превью
+    - date_of_creation: Дата создания
+    - publication_sign: Статус публикации
+    - view_count: Счетчик просмотров
+    """
     blog_title = models.CharField(max_length=150, verbose_name='Заголовок')
     slug = models.CharField(max_length=150, verbose_name='slug', blank=True, null=True)
     blog_content = models.TextField(verbose_name='Содержимое')

@@ -3,6 +3,7 @@ from django.db import models
 
 
 class User(AbstractUser):
+    """Модель пользователя. Поле username заменено на email для регистрации и верификации пользователя"""
     username = None
 
     email = models.EmailField(unique=True, verbose_name='Почта')

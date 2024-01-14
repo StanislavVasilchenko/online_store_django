@@ -12,12 +12,14 @@ from users.models import User
 
 
 class RegisterView(CreateView):
+    """Класс для отображения страницы регистрации пользователя"""
     model = User
     form_class = UserRegisterForm
     template_name = 'users/register.html'
     success_url = reverse_lazy('users:verify')
 
     def form_valid(self, form):
+        """Создает ключ для верификации пользователя и отправлюет его на указанный email"""
         verify_key = ''.join([str(random.randint(0, 9)) for i in range(12)])
         new_user = form.save()
         new_user.verified_key = verify_key
@@ -35,20 +37,24 @@ class RegisterView(CreateView):
 
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
+    """Класс для отображения страници изменения профиля пользователя"""
     model = User
     template_name = 'users/user_form.html'
     form_class = UserProfileForm
     success_url = reverse_lazy('catalog:products')
 
     def get_object(self, queryset=None):
+        """Возвращает залогиненного пользователя"""
         return self.request.user
 
 
 class VerificationTemplateView(TemplateView):
+    """Класс для отображения страници верификации пользователя"""
     template_name = 'users/verify.html'
 
     @staticmethod
     def post(request):
+        """Метод проверки ключа пользователя"""
         ver_code = request.POST.get('verify_key')
         user_code = User.objects.filter(verified_key=ver_code).first()
 
@@ -60,10 +66,12 @@ class VerificationTemplateView(TemplateView):
 
 
 class PasswordRecoveryView(LoginRequiredMixin, TemplateView):
+    """Класс для отобрадения страницы смены пароля пользователя"""
     template_name = 'users/pass_recovery.html'
 
     @staticmethod
     def post(request):
+        """Проверяет есть пользователь с email в БД и отправляет письмо с новым паролем на указанный email"""
         email = request.POST.get('email')
         user = User.objects.filter(email=email).first()
         if user is not None and user.email == email:

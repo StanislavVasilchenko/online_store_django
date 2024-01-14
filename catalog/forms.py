@@ -5,6 +5,7 @@ from catalog.models import Product, Version
 
 
 class StyleMixin:
+    """Класс миксин для общего стиля форм"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -13,11 +14,13 @@ class StyleMixin:
 
 
 class ProductForm(StyleMixin, forms.ModelForm):
+    """Класс для отображения формы продукта"""
     class Meta:
         model = Product
         exclude = ('owner', 'is_published')
 
     def clean_product_name(self):
+        """Функция для запрета ввода запрещенных слов в название продукта"""
         cleaned_data = self.cleaned_data['product_name']
         stop_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
         for word in stop_words:
@@ -26,12 +29,14 @@ class ProductForm(StyleMixin, forms.ModelForm):
         return cleaned_data
 
 
-class VersionForm(StyleMixin, forms.ModelForm):
+class VersionForm(forms.ModelForm):
+    """Класс формы для версии продукта"""
     class Meta:
         model = Version
         fields = '__all__'
 
     def clean_name(self):
+        """Функция для запрета ввода запрещенных слов в название версии пролукта"""
         cleaned_data = self.cleaned_data['name']
         stop_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
         for word in stop_words:
@@ -41,6 +46,7 @@ class VersionForm(StyleMixin, forms.ModelForm):
 
 
 class ModerationForm(StyleMixin, forms.ModelForm):
+    """Класс для формы доступной модератору.  """
     class Meta:
         model = Product
         fields = ('description', 'category', 'is_published',)
