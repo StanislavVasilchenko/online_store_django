@@ -137,3 +137,11 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = 'stanislav.vasilchenko@yandex.ru'
 EMAIL_HOST_PASSWORD = 'oxfkibvtyplzqeby'
 EMAIL_USE_SSL = True
+
+CACHE_ENABLED = True
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+    }
+}
