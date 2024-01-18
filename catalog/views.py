@@ -1,16 +1,18 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, TemplateView, DetailView, UpdateView, CreateView, DeleteView
 
 from catalog.forms import ProductForm, VersionForm, ModerationForm
-from catalog.models import Product, Version
+from catalog.models import Product, Version, Category
+from catalog.services import get_cache_categories, get_cache_category_detail
 
 
 class UserPassesMixin(UserPassesTestMixin):
     """Класс миксин для проверки является ли пользолватель владельцем продукта или модератором.
     Используется для редактирования или удаления продукта."""
+
     def test_func(self):
         user = self.request.user
         product = self.get_object()
@@ -124,3 +126,22 @@ class ContactView(TemplateView):
         message = request.POST.get("message")
         print(f"От {name} ({phone}) получено сообщение: {message}")
         return HttpResponseRedirect(reverse('catalog:contacts'))
+
+
+class CategoryView(TemplateView):
+    model = Category
+    template_name = 'catalog/category_index.html'
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['object_list'] = get_cache_categories()
+        return context_data
+
+
+class CategoryDetailView(DetailView):
+    model = Category
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['object_list'] = get_cache_category_detail(self.object.pk)
+        return context_data
