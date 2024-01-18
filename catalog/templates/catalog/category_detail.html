@@ -1,0 +1,35 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+
+    <div class="row text-center">
+        {% for object in object_list %}
+
+            <div class="col-3">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">{{ object.product_name|truncatechars:15 }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">{{ object.price }}</h1>
+                        <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                            <li>{{ object.category.category_name }}</li>
+                            <li>{{ object.description|truncatechars:95 }}</li>
+                            {% for version in object.version_set.all %}
+                                {% if version.is_activ %}
+                                    <li>Версия - {{ version.name }}</li>
+                                {% endif %}
+                            {% endfor %}
+
+                        </ul>
+                        <a href="{% url 'catalog:one_product' object.pk %}" type="button"
+                           class="btn btn-lg btn-block btn-outline-primary">К товару</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        {% endfor %}
+    </div>
+{% endblock %}
