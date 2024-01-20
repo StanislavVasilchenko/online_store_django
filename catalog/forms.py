@@ -4,17 +4,19 @@ from django.core.exceptions import ValidationError
 from catalog.models import Product, Version
 
 
-class StyleMixin:
+class StyleMixin(forms.ModelForm):
     """Класс миксин для общего стиля форм"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'form-control'
+            if not isinstance(field, forms.BooleanField):
+                field.widget.attrs['class'] = 'form-control'
 
 
-class ProductForm(StyleMixin, forms.ModelForm):
+class ProductForm(StyleMixin):
     """Класс для отображения формы продукта"""
+
     class Meta:
         model = Product
         exclude = ('owner', 'is_published')
@@ -29,8 +31,9 @@ class ProductForm(StyleMixin, forms.ModelForm):
         return cleaned_data
 
 
-class VersionForm(forms.ModelForm):
+class VersionForm(StyleMixin):
     """Класс формы для версии продукта"""
+
     class Meta:
         model = Version
         fields = '__all__'
@@ -45,8 +48,9 @@ class VersionForm(forms.ModelForm):
         return cleaned_data
 
 
-class ModerationForm(StyleMixin, forms.ModelForm):
+class ModerationForm(StyleMixin):
     """Класс для формы доступной модератору.  """
+
     class Meta:
         model = Product
         fields = ('description', 'category', 'is_published',)
